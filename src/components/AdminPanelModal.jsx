@@ -97,42 +97,42 @@ export default function AdminPanelModal({ onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="bg-slate-900 border border-slate-800 rounded-3xl max-w-3xl w-full max-h-[92vh] flex flex-col shadow-2xl overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="bg-white border border-slate-200 rounded-3xl max-w-3xl w-full max-h-[92vh] flex flex-col shadow-2xl overflow-hidden">
         
         {/* Header */}
-        <div className="p-6 border-b border-slate-800 flex items-center justify-between bg-slate-900/80">
+        <div className="p-6 border-b border-slate-200 flex items-center justify-between bg-slate-50/70">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center border border-amber-500/20">
+            <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center border border-amber-200">
               <Shield className="w-5 h-5" />
             </div>
             <div>
               <div className="flex items-center space-x-2">
-                <h3 className="text-lg font-bold text-white leading-tight">Election Commission Portal</h3>
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase font-bold">
+                <h3 className="text-lg font-bold text-slate-900 leading-tight">Election Commission Portal</h3>
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 uppercase font-bold">
                   Admin Master Control
                 </span>
               </div>
-              <p className="text-xs text-slate-400 mt-0.5">Deploy new ballots, authorize voters, and manage election lifecycles</p>
+              <p className="text-xs text-slate-500 mt-0.5">Deploy new ballots, authorize voters, and manage election lifecycles</p>
             </div>
           </div>
 
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition"
+            className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Tabs */}
-        <div className="px-6 pt-4 border-b border-slate-800 flex space-x-4 bg-slate-900/40">
+        <div className="px-6 pt-4 border-b border-slate-200 flex space-x-4 bg-slate-50/40">
           <button
             onClick={() => setActiveTab("create")}
             className={`pb-3 text-xs font-bold transition border-b-2 flex items-center space-x-2 ${
               activeTab === "create"
-                ? "border-amber-400 text-amber-400"
-                : "border-transparent text-slate-400 hover:text-white"
+                ? "border-amber-500 text-amber-600"
+                : "border-transparent text-slate-500 hover:text-slate-800"
             }`}
           >
             <Plus className="w-4 h-4" />
@@ -143,8 +143,8 @@ export default function AdminPanelModal({ onClose }) {
             onClick={() => setActiveTab("voters")}
             className={`pb-3 text-xs font-bold transition border-b-2 flex items-center space-x-2 ${
               activeTab === "voters"
-                ? "border-amber-400 text-amber-400"
-                : "border-transparent text-slate-400 hover:text-white"
+                ? "border-amber-500 text-amber-600"
+                : "border-transparent text-slate-500 hover:text-slate-800"
             }`}
           >
             <UserCheck className="w-4 h-4" />
@@ -155,8 +155,8 @@ export default function AdminPanelModal({ onClose }) {
             onClick={() => setActiveTab("lifecycle")}
             className={`pb-3 text-xs font-bold transition border-b-2 flex items-center space-x-2 ${
               activeTab === "lifecycle"
-                ? "border-amber-400 text-amber-400"
-                : "border-transparent text-slate-400 hover:text-white"
+                ? "border-amber-500 text-amber-600"
+                : "border-transparent text-slate-500 hover:text-slate-800"
             }`}
           >
             <Clock className="w-4 h-4" />
@@ -171,21 +171,21 @@ export default function AdminPanelModal({ onClose }) {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="sm:col-span-2">
-                  <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                     Election Title *
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="e.g. City Council Representative Election 2026"
+                    placeholder="e.g. Lok Sabha Constituency Election 2026"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-indigo-500"
+                    className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition"
                   />
                 </div>
 
                 <div className="sm:col-span-2">
-                  <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                     Description & Scope *
                   </label>
                   <textarea
@@ -194,12 +194,12 @@ export default function AdminPanelModal({ onClose }) {
                     placeholder="Provide voter instructions, purpose, and key dates..."
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-indigo-500 resize-none"
+                    className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 resize-none transition"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                     Duration (Minutes)
                   </label>
                   <input
@@ -207,13 +207,13 @@ export default function AdminPanelModal({ onClose }) {
                     min="1"
                     value={duration}
                     onChange={(e) => setDuration(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-indigo-500"
+                    className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition"
                   />
                   <span className="text-[10px] text-slate-500 mt-1 block">1440 min = 24 Hours</span>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                     Registration Policy
                   </label>
                   <div className="flex items-center space-x-3 mt-2">
@@ -224,8 +224,8 @@ export default function AdminPanelModal({ onClose }) {
                         onChange={(e) => setOpenRegistration(e.target.checked)}
                         className="sr-only peer"
                       />
-                      <div className="w-11 h-6 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
-                      <span className="ml-3 text-xs font-medium text-slate-300">
+                      <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
+                      <span className="ml-3 text-xs font-medium text-slate-700">
                         {openRegistration ? "Open Self-Registration" : "Whitelist Only"}
                       </span>
                     </label>
@@ -234,13 +234,13 @@ export default function AdminPanelModal({ onClose }) {
               </div>
 
               {/* Candidates Builder */}
-              <div className="pt-4 border-t border-slate-800 space-y-4">
+              <div className="pt-4 border-t border-slate-200 space-y-4">
                 <div className="flex items-center justify-between">
-                  <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider">Candidate Roster</h4>
+                  <h4 className="text-xs font-bold text-slate-700 uppercase tracking-wider">Candidate Roster</h4>
                   <button
                     type="button"
                     onClick={handleAddCandidate}
-                    className="flex items-center space-x-1 text-xs text-indigo-400 hover:text-indigo-300 font-semibold"
+                    className="flex items-center space-x-1 text-xs text-indigo-600 hover:text-indigo-700 font-semibold"
                   >
                     <Plus className="w-3.5 h-3.5" />
                     <span>Add Candidate</span>
@@ -249,14 +249,14 @@ export default function AdminPanelModal({ onClose }) {
 
                 <div className="space-y-3">
                   {candidates.map((cand, idx) => (
-                    <div key={idx} className="p-4 rounded-2xl bg-slate-950/70 border border-slate-850 space-y-3">
+                    <div key={idx} className="p-4 rounded-2xl bg-slate-50/80 border border-slate-200 space-y-3">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-slate-400">Candidate #{idx + 1}</span>
+                        <span className="text-xs font-bold text-slate-600">Candidate #{idx + 1}</span>
                         {candidates.length > 2 && (
                           <button
                             type="button"
                             onClick={() => handleRemoveCandidate(idx)}
-                            className="text-slate-500 hover:text-rose-400 transition"
+                            className="text-slate-400 hover:text-rose-600 transition"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
                           </button>
@@ -266,31 +266,31 @@ export default function AdminPanelModal({ onClose }) {
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <input
                           type="text"
-                          placeholder="Candidate Full Name *"
+                          placeholder="Candidate Full Name (e.g. Rajesh Kumar) *"
                           value={cand.name}
                           onChange={(e) => handleCandidateChange(idx, "name", e.target.value)}
-                          className="px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 text-white text-xs"
+                          className="px-3 py-2 rounded-lg bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 text-xs focus:outline-none focus:border-indigo-500"
                         />
                         <input
                           type="text"
                           placeholder="Party / Affiliation *"
                           value={cand.party}
                           onChange={(e) => handleCandidateChange(idx, "party", e.target.value)}
-                          className="px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 text-white text-xs"
+                          className="px-3 py-2 rounded-lg bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 text-xs focus:outline-none focus:border-indigo-500"
                         />
                         <input
                           type="text"
                           placeholder="Manifesto summary / Motto"
                           value={cand.manifesto}
                           onChange={(e) => handleCandidateChange(idx, "manifesto", e.target.value)}
-                          className="sm:col-span-2 px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 text-white text-xs"
+                          className="sm:col-span-2 px-3 py-2 rounded-lg bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 text-xs focus:outline-none focus:border-indigo-500"
                         />
                         <input
                           type="text"
                           placeholder="Avatar image URL (optional)"
                           value={cand.avatarUrl}
                           onChange={(e) => handleCandidateChange(idx, "avatarUrl", e.target.value)}
-                          className="sm:col-span-2 px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 text-white text-xs"
+                          className="sm:col-span-2 px-3 py-2 rounded-lg bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 text-xs focus:outline-none focus:border-indigo-500"
                         />
                       </div>
                     </div>
@@ -298,11 +298,11 @@ export default function AdminPanelModal({ onClose }) {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-800 flex justify-end">
+              <div className="pt-4 border-t border-slate-200 flex justify-end">
                 <button
                   type="submit"
                   disabled={loading}
-                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs shadow-lg shadow-amber-500/20 transition flex items-center space-x-2"
+                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-white font-bold text-xs shadow-md shadow-amber-500/20 transition flex items-center space-x-2"
                 >
                   <Plus className="w-4 h-4" />
                   <span>{loading ? "Deploying..." : "Deploy Election to Blockchain"}</span>
@@ -316,13 +316,13 @@ export default function AdminPanelModal({ onClose }) {
             <div className="space-y-6">
               
               <div>
-                <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                   Select Target Election
                 </label>
                 <select
                   value={selectedElectionId}
                   onChange={(e) => setSelectedElectionId(Number(e.target.value))}
-                  className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-indigo-500"
+                  className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:outline-none focus:border-indigo-500"
                 >
                   {elections.map((elec) => (
                     <option key={elec.id} value={elec.id}>
@@ -333,19 +333,19 @@ export default function AdminPanelModal({ onClose }) {
               </div>
 
               {/* Single voter register */}
-              <form onSubmit={handleSingleRegister} className="p-4 rounded-2xl bg-slate-950/70 border border-slate-850 space-y-3">
-                <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider">Authorize Single Citizen Address</h4>
+              <form onSubmit={handleSingleRegister} className="p-4 rounded-2xl bg-slate-50/80 border border-slate-200 space-y-3">
+                <h4 className="text-xs font-bold text-slate-700 uppercase tracking-wider">Authorize Single Citizen Address</h4>
                 <div className="flex gap-2">
                   <input
                     type="text"
                     placeholder="0x70997970C51812dc3A010C7d01b50e0d17dc79C8"
                     value={singleAddress}
                     onChange={(e) => setSingleAddress(e.target.value)}
-                    className="flex-1 px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-white font-mono text-xs focus:outline-none focus:border-indigo-500"
+                    className="flex-1 px-3 py-2 rounded-xl bg-white border border-slate-200 text-slate-900 font-mono text-xs focus:outline-none focus:border-indigo-500"
                   />
                   <button
                     type="submit"
-                    className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs transition shrink-0"
+                    className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs transition shrink-0 shadow-sm"
                   >
                     Authorize
                   </button>
@@ -353,19 +353,19 @@ export default function AdminPanelModal({ onClose }) {
               </form>
 
               {/* Batch register */}
-              <form onSubmit={handleBatchRegister} className="p-4 rounded-2xl bg-slate-950/70 border border-slate-850 space-y-3">
-                <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider">Batch Authorize (Bulk Roster)</h4>
-                <p className="text-xs text-slate-400">Paste multiple Ethereum addresses separated by commas or line breaks.</p>
+              <form onSubmit={handleBatchRegister} className="p-4 rounded-2xl bg-slate-50/80 border border-slate-200 space-y-3">
+                <h4 className="text-xs font-bold text-slate-700 uppercase tracking-wider">Batch Authorize (Bulk Roster)</h4>
+                <p className="text-xs text-slate-500">Paste multiple Ethereum addresses separated by commas or line breaks.</p>
                 <textarea
                   rows={4}
                   placeholder={`0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC\n0x90F79bf6EB2c4f870365E785982E1f101E93b906`}
                   value={batchAddresses}
                   onChange={(e) => setBatchAddresses(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-white font-mono text-xs focus:outline-none focus:border-indigo-500 resize-none"
+                  className="w-full px-3 py-2 rounded-xl bg-white border border-slate-200 text-slate-900 font-mono text-xs focus:outline-none focus:border-indigo-500 resize-none"
                 />
                 <button
                   type="submit"
-                  className="px-5 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white font-bold text-xs shadow-md transition"
+                  className="px-5 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-600 text-white font-bold text-xs shadow-md shadow-indigo-600/15 transition"
                 >
                   Process Batch Authorization
                 </button>
@@ -376,8 +376,8 @@ export default function AdminPanelModal({ onClose }) {
 
           {activeTab === "lifecycle" && (
             <div className="space-y-4">
-              <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider">Active Election Controls</h4>
-              <p className="text-xs text-slate-400">
+              <h4 className="text-xs font-bold text-slate-700 uppercase tracking-wider">Active Election Controls</h4>
+              <p className="text-xs text-slate-500">
                 Early close or finalize elections. Once ended, no further ballots can be cast on-chain.
               </p>
 
@@ -385,13 +385,13 @@ export default function AdminPanelModal({ onClose }) {
                 {elections.map((elec) => (
                   <div
                     key={elec.id}
-                    className="p-4 rounded-2xl bg-slate-950/70 border border-slate-850 flex items-center justify-between"
+                    className="p-4 rounded-2xl bg-slate-50/80 border border-slate-200 flex items-center justify-between"
                   >
                     <div>
                       <div className="flex items-center space-x-2">
-                        <span className="text-xs font-bold text-white">#{elec.id} {elec.title}</span>
+                        <span className="text-xs font-bold text-slate-900">#{elec.id} {elec.title}</span>
                         <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${
-                          elec.status === 1 ? "bg-emerald-500/15 text-emerald-400" : "bg-slate-800 text-slate-500"
+                          elec.status === 1 ? "bg-emerald-50 text-emerald-700 border border-emerald-200" : "bg-slate-100 text-slate-600"
                         }`}>
                           {elec.status === 1 ? "Active" : "Closed"}
                         </span>
@@ -404,7 +404,7 @@ export default function AdminPanelModal({ onClose }) {
                     {elec.status === 1 && (
                       <button
                         onClick={() => endElection(elec.id)}
-                        className="px-3.5 py-1.5 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-500/30 text-xs font-semibold transition"
+                        className="px-3.5 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 text-xs font-semibold transition"
                       >
                         End Election
                       </button>

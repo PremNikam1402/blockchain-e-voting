@@ -4,37 +4,37 @@ export const LOCAL_RPC_URL = "http://127.0.0.1:8545";
 export const DEMO_ACCOUNTS = [
   {
     address: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
-    name: "Admin (Election Commissioner)",
+    name: "Rajesh Sharma (Chief Election Commissioner)",
     role: "admin",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150",
     badge: "Super Admin"
   },
   {
     address: "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
-    name: "Alice Vance",
-    role: "voter",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150",
-    badge: "Verified Voter"
-  },
-  {
-    address: "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
-    name: "Bob Martinez",
-    role: "voter",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150",
-    badge: "Verified Voter"
-  },
-  {
-    address: "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
-    name: "Charlie Zhang",
+    name: "Priya Sharma",
     role: "voter",
     avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150",
     badge: "Verified Voter"
   },
   {
-    address: "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
-    name: "David Kim",
+    address: "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+    name: "Rahul Verma",
     role: "voter",
-    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150",
+    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150",
+    badge: "Verified Voter"
+  },
+  {
+    address: "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+    name: "Ananya Patel",
+    role: "voter",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150",
+    badge: "Verified Voter"
+  },
+  {
+    address: "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+    name: "Vikram Malhotra",
+    role: "voter",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150",
     badge: "Unregistered Citizen"
   }
 ];
@@ -60,7 +60,7 @@ export const INITIAL_DEMO_ELECTIONS = [
     candidates: [
       {
         id: 1,
-        name: "Elena Rostova",
+        name: "Dr. Neha Kapoor",
         party: "Decentralized Systems Party",
         avatarUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300",
         manifesto: "Focusing on quantum-resistant cryptography, layer-2 scalability, and democratic validator incentives.",
@@ -68,7 +68,7 @@ export const INITIAL_DEMO_ELECTIONS = [
       },
       {
         id: 2,
-        name: "Marcus Vance",
+        name: "Rohan Deshmukh",
         party: "Open Source Innovation",
         avatarUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300",
         manifesto: "Accelerating public-goods funding, developer grants, and open-source tooling.",
@@ -76,7 +76,7 @@ export const INITIAL_DEMO_ELECTIONS = [
       },
       {
         id: 3,
-        name: "Aria Chen",
+        name: "Kavita Iyer",
         party: "Privacy & Security Union",
         avatarUrl: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300",
         manifesto: "Prioritizing zero-knowledge proofs, user privacy protections, and strict on-chain protocol governance.",
@@ -103,7 +103,7 @@ export const INITIAL_DEMO_ELECTIONS = [
     candidates: [
       {
         id: 1,
-        name: "Devon Miller",
+        name: "Arjun Mehta",
         party: "Campus Forward",
         avatarUrl: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=300",
         manifesto: "Modernizing library resources, 24/7 campus cafes, and expanding student mental health initiatives.",
@@ -111,10 +111,10 @@ export const INITIAL_DEMO_ELECTIONS = [
       },
       {
         id: 2,
-        name: "Sophia Patel",
+        name: "Pooja Patel",
         party: "Student Voice Coalition",
         avatarUrl: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300",
-        manifesto: "Lowering tuition auxiliary fees, enhancing international student support, and green campus sustainability.",
+        manifesto: "Lowering tuition auxiliary fees, enhancing student support, and green campus sustainability.",
         voteCount: 5
       }
     ]

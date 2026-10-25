@@ -26,18 +26,18 @@ export default function ElectionList({ onSelectVote, onSelectResults, onOpenAdmi
       {/* Search & Filter Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl font-bold text-white tracking-tight">Decentralized Ballots & Elections</h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <h2 className="text-xl font-bold text-slate-900 tracking-tight">Decentralized Ballots & Elections</h2>
+          <p className="text-xs text-slate-500 mt-1">
             Browse active votes, inspect candidate platforms, or cast your cryptographically signed ballot.
           </p>
         </div>
 
         <div className="flex items-center space-x-2">
-          <div className="flex bg-slate-900 border border-slate-800 rounded-xl p-1 text-xs">
+          <div className="flex bg-white border border-slate-200 rounded-xl p-1 text-xs shadow-sm">
             <button
               onClick={() => setFilter("all")}
               className={`px-3 py-1.5 rounded-lg font-medium transition ${
-                filter === "all" ? "bg-indigo-600 text-white shadow-sm" : "text-slate-400 hover:text-white"
+                filter === "all" ? "bg-indigo-600 text-white shadow-sm" : "text-slate-600 hover:text-slate-900"
               }`}
             >
               All ({elections.length})
@@ -45,7 +45,7 @@ export default function ElectionList({ onSelectVote, onSelectResults, onOpenAdmi
             <button
               onClick={() => setFilter("active")}
               className={`px-3 py-1.5 rounded-lg font-medium transition ${
-                filter === "active" ? "bg-indigo-600 text-white shadow-sm" : "text-slate-400 hover:text-white"
+                filter === "active" ? "bg-indigo-600 text-white shadow-sm" : "text-slate-600 hover:text-slate-900"
               }`}
             >
               Active ({elections.filter((e) => e.status === 1).length})
@@ -53,7 +53,7 @@ export default function ElectionList({ onSelectVote, onSelectResults, onOpenAdmi
             <button
               onClick={() => setFilter("ended")}
               className={`px-3 py-1.5 rounded-lg font-medium transition ${
-                filter === "ended" ? "bg-indigo-600 text-white shadow-sm" : "text-slate-400 hover:text-white"
+                filter === "ended" ? "bg-indigo-600 text-white shadow-sm" : "text-slate-600 hover:text-slate-900"
               }`}
             >
               Concluded ({elections.filter((e) => e.status === 2).length})
@@ -64,9 +64,9 @@ export default function ElectionList({ onSelectVote, onSelectResults, onOpenAdmi
 
       {/* Grid of Elections */}
       {filteredElections.length === 0 ? (
-        <div className="text-center py-16 border border-dashed border-slate-800 rounded-2xl">
-          <Vote className="w-10 h-10 text-slate-600 mx-auto mb-3" />
-          <h3 className="text-sm font-semibold text-slate-300">No elections match your filter</h3>
+        <div className="text-center py-16 border border-dashed border-slate-200 rounded-2xl bg-white">
+          <Vote className="w-10 h-10 text-slate-400 mx-auto mb-3" />
+          <h3 className="text-sm font-semibold text-slate-700">No elections match your filter</h3>
           <p className="text-xs text-slate-500 mt-1">Try switching tabs or adjusting search query.</p>
         </div>
       ) : (
@@ -78,7 +78,7 @@ export default function ElectionList({ onSelectVote, onSelectResults, onOpenAdmi
             return (
               <div
                 key={election.id}
-                className="glass-panel rounded-2xl p-6 border border-slate-800/80 hover:border-indigo-500/40 transition-all duration-300 flex flex-col justify-between group"
+                className="glass-panel rounded-2xl p-6 border border-slate-200/80 hover:border-indigo-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group bg-white"
               >
                 <div>
                   {/* Status header */}
@@ -86,78 +86,78 @@ export default function ElectionList({ onSelectVote, onSelectResults, onOpenAdmi
                     <div className="flex items-center space-x-2">
                       <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold tracking-wide uppercase flex items-center space-x-1.5 ${
                         isActive
-                          ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30"
-                          : "bg-slate-800 text-slate-400 border border-slate-700"
+                          ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
+                          : "bg-slate-100 text-slate-600 border border-slate-200"
                       }`}>
-                        <span className={`w-1.5 h-1.5 rounded-full ${isActive ? "bg-emerald-400 animate-pulse" : "bg-slate-400"}`}></span>
+                        <span className={`w-1.5 h-1.5 rounded-full ${isActive ? "bg-emerald-500 animate-pulse" : "bg-slate-400"}`}></span>
                         <span>{isActive ? "Active Voting" : "Concluded"}</span>
                       </span>
 
                       {election.openRegistration ? (
-                        <span className="text-[10px] px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 font-medium">
+                        <span className="text-[10px] px-2 py-0.5 rounded bg-indigo-50 text-indigo-700 border border-indigo-200 font-medium">
                           Open Entry
                         </span>
                       ) : (
-                        <span className="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700/60 font-medium flex items-center space-x-1">
+                        <span className="text-[10px] px-2 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200 font-medium flex items-center space-x-1">
                           <Lock className="w-2.5 h-2.5 inline" />
                           <span>Whitelist Only</span>
                         </span>
                       )}
                     </div>
 
-                    <span className="text-xs font-mono text-slate-500">#{election.id}</span>
+                    <span className="text-xs font-mono text-slate-400">#{election.id}</span>
                   </div>
 
                   {/* Title & Desc */}
-                  <h3 className="text-base font-bold text-white group-hover:text-indigo-300 transition line-clamp-1">
+                  <h3 className="text-base font-bold text-slate-900 group-hover:text-indigo-600 transition line-clamp-1">
                     {election.title}
                   </h3>
-                  <p className="text-xs text-slate-400 mt-2 line-clamp-2 leading-relaxed">
+                  <p className="text-xs text-slate-600 mt-2 line-clamp-2 leading-relaxed">
                     {election.description}
                   </p>
 
                   {/* Candidates preview avatars */}
-                  <div className="mt-4 pt-4 border-t border-slate-800/80">
-                    <div className="flex items-center justify-between text-xs text-slate-400 mb-2">
+                  <div className="mt-4 pt-4 border-t border-slate-100">
+                    <div className="flex items-center justify-between text-xs text-slate-500 mb-2">
                       <span className="font-medium">Candidates ({election.candidates?.length || 0}):</span>
-                      <span className="font-mono text-slate-300">{election.totalVotes} votes cast</span>
+                      <span className="font-mono text-slate-700 font-semibold">{election.totalVotes} votes cast</span>
                     </div>
 
                     <div className="flex items-center -space-x-2 overflow-hidden py-1">
                       {election.candidates?.map((cand) => (
                         <img
                           key={cand.id}
-                          className="inline-block h-8 w-8 rounded-full ring-2 ring-slate-900 object-cover"
+                          className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover shadow-sm"
                           src={cand.avatarUrl}
                           alt={cand.name}
                           title={`${cand.name} (${cand.party})`}
                         />
                       ))}
-                      <div className="pl-4 text-[11px] text-slate-400 font-medium truncate">
+                      <div className="pl-4 text-[11px] text-slate-500 font-medium truncate">
                         {election.candidates?.map((c) => c.name.split(" ")[0]).join(", ")}
                       </div>
                     </div>
                   </div>
 
                   {/* Voter Status Tag for logged-in user */}
-                  <div className="mt-3.5 p-2.5 rounded-xl bg-slate-900/60 border border-slate-800 text-xs">
+                  <div className="mt-3.5 p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs">
                     {voterStatus.hasVoted ? (
-                      <div className="flex items-center justify-between text-emerald-400 font-semibold">
+                      <div className="flex items-center justify-between text-emerald-700 font-semibold">
                         <div className="flex items-center space-x-1.5">
                           <CheckCircle className="w-4 h-4 shrink-0" />
                           <span>Ballot Cast</span>
                         </div>
-                        <span className="text-[10px] font-mono text-slate-400">
+                        <span className="text-[10px] font-mono text-slate-500">
                           Candidate #{voterStatus.candidateId}
                         </span>
                       </div>
                     ) : voterStatus.isRegistered ? (
-                      <div className="flex items-center space-x-1.5 text-cyan-400 font-semibold">
+                      <div className="flex items-center space-x-1.5 text-cyan-700 font-semibold">
                         <ShieldCheck className="w-4 h-4 shrink-0" />
                         <span>Authorized & Ready to Vote</span>
                       </div>
                     ) : election.openRegistration ? (
-                      <div className="flex items-center space-x-1.5 text-amber-300 font-medium">
+                      <div className="flex items-center space-x-1.5 text-amber-700 font-medium">
                         <Users className="w-4 h-4 shrink-0" />
                         <span>Self-Registration Available</span>
                       </div>
@@ -171,11 +171,11 @@ export default function ElectionList({ onSelectVote, onSelectResults, onOpenAdmi
                 </div>
 
                 {/* Card Action Buttons */}
-                <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center space-x-2">
+                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center space-x-2">
                   {isActive && !voterStatus.hasVoted ? (
                     <button
                       onClick={() => onSelectVote(election)}
-                      className="flex-1 py-2 px-3 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white font-semibold text-xs flex items-center justify-center space-x-1.5 shadow-md shadow-indigo-600/20 transition"
+                      className="flex-1 py-2 px-3 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-600 text-white font-semibold text-xs flex items-center justify-center space-x-1.5 shadow-md shadow-indigo-600/15 transition"
                     >
                       <Vote className="w-3.5 h-3.5" />
                       <span>{voterStatus.isRegistered ? "Cast Ballot" : "Register & Vote"}</span>
@@ -183,19 +183,19 @@ export default function ElectionList({ onSelectVote, onSelectResults, onOpenAdmi
                   ) : (
                     <button
                       onClick={() => onSelectVote(election)}
-                      className="flex-1 py-2 px-3 rounded-xl bg-slate-800/80 hover:bg-slate-750 text-slate-200 font-semibold text-xs flex items-center justify-center space-x-1.5 border border-slate-700 transition"
+                      className="flex-1 py-2 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs flex items-center justify-center space-x-1.5 border border-slate-200 transition"
                     >
-                      <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
+                      <CheckCircle className="w-3.5 h-3.5 text-emerald-600" />
                       <span>View My Ballot</span>
                     </button>
                   )}
 
                   <button
                     onClick={() => onSelectResults(election)}
-                    className="py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 font-semibold text-xs flex items-center space-x-1 border border-slate-800 transition"
+                    className="py-2 px-3 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold text-xs flex items-center space-x-1 border border-slate-200 transition shadow-sm"
                     title="Live Results & Audit"
                   >
-                    <BarChart3 className="w-3.5 h-3.5 text-cyan-400" />
+                    <BarChart3 className="w-3.5 h-3.5 text-cyan-600" />
                     <span>Results</span>
                   </button>
                 </div>

@@ -26,9 +26,9 @@ async function main() {
     1440, // 24 hours (1440 minutes)
     true, // Open registration enabled
     [
-      "Elena Rostova",
-      "Marcus Vance",
-      "Aria Chen"
+      "Dr. Neha Kapoor",
+      "Rohan Deshmukh",
+      "Kavita Iyer"
     ],
     [
       "Decentralized Systems Party",
@@ -56,8 +56,8 @@ async function main() {
     720, // 12 hours
     false, // Closed / Whitelist only
     [
-      "Devon Miller",
-      "Sophia Patel"
+      "Arjun Mehta",
+      "Pooja Patel"
     ],
     [
       "Campus Forward",
